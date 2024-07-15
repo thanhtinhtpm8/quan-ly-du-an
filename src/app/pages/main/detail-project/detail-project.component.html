@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="header" [style]="color?('background-color:'+color):''">
+        <mat-grid-list cols="4" rowHeight="100%">
+            <mat-grid-tile colspan="3">
+                <div style="width: 100%;font-size: x-large; font-weight: 500;">
+                    {{title}}
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile style="text-align: end;">
+                <div style="width: 100%;">
+                    <button mat-icon-button [matMenuTriggerFor]="menu"  class="icon-more">
+                        <mat-icon style="color: rgb(126, 24, 24);" >more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" style="background-color: aliceblue;" >
+                        <button mat-menu-item (click)="edit_click()">
+                            <mat-icon>edit</mat-icon>
+                            <span>Chỉnh sửa</span>
+                        </button>
+                        <button mat-menu-item (click)="view_user()" >
+                            <mat-icon>supervised_user_circle</mat-icon>
+                            <span>Thành viên</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications_off</mat-icon>
+                            <span>Thông báo</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="content" [style]="color?('background-color:'+color):''">
+        <mat-grid-list cols="3" rowHeight="100%">
+            <mat-grid-tile>
+                <div class="grid-item">
+                    <div class="color">
+                        <app-list [title]="'Nhiệm vụ mới'" [list_task]="list_task_todo" [type]="1" (add_new)="add_new($event)"></app-list>
+                    </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="grid-item">
+                    <div class="color">
+                        <app-list [title]="'Nhiệm vụ đang thực hiện'" [list_task]="list_task_doing" (add_new)="add_new($event)" [type]="2"></app-list>
+                    </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="grid-item">
+                    <div class="color">
+                        <app-list [title]="'Nhiệm vụ đang thực hiện'" [list_task]="list_task_done" (add_new)="add_new($event)" [type]="3"></app-list>
+                    </div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

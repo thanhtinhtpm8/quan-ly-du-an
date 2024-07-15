@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mat-mdc-menu-content {
+  background-color: aliceblue;
+  color: black;
+}
+
+.mat-mdc-menu-item {
+  color: unset !important;
+}
+
+.mat-mdc-menu-submenu-icon {
+  color: unset !important;
+}
+
+.mat-icon {
+  color: unset !important;
+}
+.mdc-text-field{
+  border: 1px black solid !important;
+  background-color: white !important;
+  color: black !important;
+}
+mat-label{
+  color: black !important;
+}
+.mat-mdc-input-element {
+  color: black !important;
+}
+.mat-mdc-select-value-text{
+  color: black !important;
+}
+.mat-bottom-sheet-container {
+  padding: unset !important;
+}

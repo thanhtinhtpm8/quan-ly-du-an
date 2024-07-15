@@ -1,0 +1,22 @@
+.grid-item {
+    background-color: #3498db;
+    /* Blue background color for grid items */
+    color: white;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    height: 150px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Smooth transition for transform and box-shadow */
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+    /* Move the item up */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Add shadow effect */
+    background-color: #2980b9;
+    /* Darker blue on hover */
+}

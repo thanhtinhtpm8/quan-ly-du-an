@@ -1,0 +1,49 @@
+<div class="title">
+    <span style="margin-left: 20px; height: 50PX"> {{title}}</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="icon-more">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" style="background-color: aliceblue;">
+        <button mat-menu-item>
+            <mat-icon>lock</mat-icon>
+            <span>Khoá</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>notifications</mat-icon>
+            <span>Thông báo</span>
+        </button>
+    </mat-menu>
+</div>
+<div class="content-item">
+    @for (item of list_task; track $index) {
+    <div style="cursor: pointer;" (click)="edit_task(item)">
+        <mat-card class="item-task" appearance="outlined">
+            <mat-card-content style="padding: 0px;">
+                
+                <div style="font-size: small; text-align: left;">
+                    <div class="card">
+                        <div class="card-content">
+                          <div class="card-text">{{item.title}}</div>
+                          <div class="card-footer">
+                            <div class="card-status">
+                              <!-- <span class="status-icon">✓</span> -->
+                              <!-- <span class="status-text">KAN-2</span> -->
+                            </div>
+                            <div class="card-avatar">T</div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    }
+</div>
+<div class="footer">
+    <button mat-fab extended style="margin: unset;width: 100%; background-color: rgb(48, 173, 48);"
+        (click)="add_task()">
+        <mat-icon>add</mat-icon>
+        Thêm mới task
+    </button>
+</div>

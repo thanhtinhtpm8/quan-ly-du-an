@@ -1,0 +1,13 @@
+<div class="content">
+    <div class="title">Danh sách thành viên</div>
+    <div>
+        <ul class="user-list">
+            @for (item of list_user; track $index) {
+            <li class="user-item">
+                <div class="card-avatar">{{item.name.charAt(0)}}</div>
+                <span class="user-name">{{item.name}}</span>
+            </li>
+            }
+        </ul>
+    </div>
+</div>

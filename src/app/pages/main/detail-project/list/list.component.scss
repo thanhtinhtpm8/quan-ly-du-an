@@ -1,0 +1,128 @@
+.button-add:hover {
+    background-color: rgb(40, 124, 19);
+}
+
+.button-add {
+    background-color: rgb(71, 168, 47);
+    border: solid 1px rgb(11, 240, 11);
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item-task {
+    background-color: white;
+    border-color: black;
+    margin: 10px 7px;
+}
+
+.item-task:hover {
+    background-color: rgb(129, 138, 146) !important;
+}
+
+.footer {
+    width: 100%;
+    height: 60px;
+    padding: 5px 30px;
+    border-top: 1px solid gray;
+}
+
+.content-item {
+    width: 100%;
+    max-height: 62vh;
+    overflow-y: auto;
+}
+
+.icon-more {
+    color: black;
+    float: right;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    align-items: end;
+    
+}
+
+.title {
+    height: 60px;
+    width: 100%;
+    text-align: left;
+    margin-left: 5px;
+    padding: 10px 0px;
+    border-bottom: 1px solid gray;
+}
+
+//
+.icon-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+//
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .card:hover{
+    background-color: rgb(129, 138, 146) !important;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-icon {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  
+  .status-text {
+    font-size: 14px;
+  }
+  
+  .card-avatar {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+  }

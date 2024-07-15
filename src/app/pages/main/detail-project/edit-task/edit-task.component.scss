@@ -1,0 +1,150 @@
+.content {
+    background-color: white;
+    width: 700px;
+    border-radius: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.title {
+    font-weight: bold;
+
+}
+
+.comment {
+    padding-bottom: 10px;
+    border-bottom: 1px solid gainsboro;
+
+}
+
+.list-comment {
+    overflow-y: auto;
+    max-height: 250px;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.comment-item {
+    margin-bottom: 5px;
+}
+
+select {
+    width: 30%;
+    float: right;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+.example-list-wrapping {
+    max-width: 100%;
+}
+//
+.comment-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .comment-input {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .comment-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .comment-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .comment-item {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .comment-avatar {
+    margin-right: 10px;
+  }
+  
+  .avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .comment-content {
+    flex: 1;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+  }
+  
+  .comment-time {
+    color: #888;
+    font-size: small;
+  }
+  
+  .comment-text {
+    margin-bottom: 5px;
+    max-width: 100%;
+  }
+  
+  .comment-actions {
+    font-size: 12px;
+    color: #007bff;
+  }
+  
+  .comment-actions a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 5px;
+  }
+  
+  .comment-options {
+    cursor: pointer;
+  }

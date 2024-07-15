@@ -1,0 +1,75 @@
+<div class="content">
+    <h2 mat-dialog-title style="color: black;margin-top: 10px;">
+        <span style="float: left;">{{title}}</span>
+        <div style="float: right; margin-left: 5px;">
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="icon-more">
+                <mat-icon style="color: rgb(39, 7, 7);">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" style="background-color: aliceblue;">
+                <button mat-menu-item (click)="edit_task()">
+                    <mat-icon>edit</mat-icon>
+                    <span>Chỉnh sửa task</span>
+                </button>
+                <button mat-menu-item (click)="delete()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Xoá task</span>
+                </button>
+            </mat-menu>
+        </div>
+        <select id="options" name="options" required>
+            <option value="" disabled selected>Trạng thái</option>
+            <option value="1">Nhiệm vụ mới</option>
+            <option value="2">Đang thực hiện</option>
+            <option value="3">Hoàn thành</option>
+        </select>
+    </h2>
+    <mat-dialog-content class="mat-typography" style="color: black;">
+        <div style="width: 100%;">
+            <div class="form-group">
+                <label for="description">Mô tả</label>
+                <pre style="text-align: left;">
+                    <div>{{description}}</div>
+                </pre>
+            </div>
+            <div class="title">Nhập ghi chú:</div>
+            <div class="comment">
+                <div>
+                    <textarea id="description" name="description" rows="2" required [(ngModel)]="note"></textarea>
+                    <button mat-fab extended style="background-color: rgb(45, 117, 150);" (click)="send()">
+                        <mat-icon>send</mat-icon>Gửi
+                    </button>
+                </div>
+            </div>
+            @if (list_note.length) {
+            <div class="title">Danh sách ghi chú</div>
+            <div class="list-comment">
+                <div class="comment-section">
+                    <div class="comment-list">
+                        @for (item of list_note; track $index) {
+                        <div class="comment-item">
+                            <div class="comment-avatar">
+                                <span class="avatar">{{item.user.charAt(0)}}</span>
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">{{item.user}}</span>
+                                    <span class="comment-time">{{convertDate(item.time_create)}}</span>
+                                </div>
+                                <div class="comment-text" [innerHTML]="item.content"></div>
+                                <div class="comment-actions">
+                                    <a (click)="edit_note(item.id)">Edit</a> ·
+                                    <a (click)="delete_note(item.id)">Delete</a> ·
+                                    <span class="comment-options">•••</span>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            }
+
+
+        </div>
+    </mat-dialog-content>
+</div>

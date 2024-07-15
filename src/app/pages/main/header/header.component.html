@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="logo" style="width: 250px;text-align: center;align-content: center;">
+      <mat-grid-list cols="2" rowHeight="100%" style="color: black;">
+        <mat-grid-tile>
+            <span class="title-logo">QLDA</span>
+        </mat-grid-tile>
+        <mat-grid-tile >
+            <button mat-icon-button style="color: black;float: right;" (click)="show_click()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="user-profile">
+      <img src={{avatar_url}} alt="Avatar" class="avatar">
+      <span class="username">{{user_name}}</span>
+    </div>
+</header>

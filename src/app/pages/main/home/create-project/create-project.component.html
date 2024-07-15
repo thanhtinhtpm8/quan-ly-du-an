@@ -1,0 +1,45 @@
+<div class="content" >
+    <h2 mat-dialog-title style="color: rgb(252, 252, 252);opacity: 80%;" [style]="select_color?('background-color:'+select_color):''">Thêm mới dự án</h2>
+    <mat-dialog-content class="mat-typography" style="color: black;">
+        <div style="width: 100%;">
+            <mat-form-field class="example-full-width">
+                <mat-label>Tên dự án</mat-label>
+                <input [(ngModel)]="name" matInput placeholder="Tên dự án" required />
+                <mat-error>Vui lòng nhập tên dự án</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Mô tả dự án</mat-label>
+                <textarea matInput placeholder="Mô tả dự án..." rows="4" [(ngModel)]="description" required></textarea>
+                <mat-error>Vui lòng nhập mô tả</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Chọn màu nền</mat-label>
+                <mat-select [(ngModel)]="select_color">
+                    <mat-option value="#3498db">Xanh da trời</mat-option>
+                    <mat-option value="red">Đỏ</mat-option>
+                    <mat-option value="green">Xanh lá</mat-option>
+                    <mat-option value="#808080">Xám</mat-option>
+                    <mat-option value="#000000">Đen</mat-option>
+                    <mat-option value="#cbc83b">Vàng</mat-option>
+                    <mat-option value="#00FFFF">Xanh ngọc</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Chọn thành viên</mat-label>
+                <mat-select [(ngModel)]="list_user_select" multiple required>
+                    @for (user of list_user; track user) {
+                    <mat-option [value]="user">{{user}}</mat-option>
+                    }
+                </mat-select>
+                <mat-error>Vui lòng chọn thành viên</mat-error>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close style="color: black;">Huỷ</button>
+        <button mat-button style="color: black;" (click)="submit()">Thêm mới</button>
+    </mat-dialog-actions>
+
+</div>

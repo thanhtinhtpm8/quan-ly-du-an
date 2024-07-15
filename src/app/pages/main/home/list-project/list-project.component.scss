@@ -1,0 +1,69 @@
+.content {
+    margin-top: 50px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: 700;
+    color: rgb(59, 59, 59);
+    margin-bottom: 10px;
+}
+
+.list-item {
+    border: solid 1px rgb(161, 161, 161);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    /* Adjust the gap between items as needed */
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #3498db;
+    /* Blue background color for grid items */
+    color: white;
+    padding: 20px;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    height: 150px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Smooth transition for transform and box-shadow */
+    cursor: pointer;
+}
+
+.grid-item:hover {
+    transform: translateY(-10px);
+    /* Move the item up */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Add shadow effect */
+    background-color: #2980b9;
+    /* Darker blue on hover */
+}
+
+.create {
+    background-color: #C0C0C0;
+    text-align: center;
+    align-content: center;
+}
+
+.create:hover {
+    background-color: #a09b9b;
+    text-align: center;
+    align-content: center;
+}
+
+.title2 {
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: 700;
+    color: rgb(59, 59, 59);
+    margin-bottom: 10px;
+    margin-top: 50px;
+}

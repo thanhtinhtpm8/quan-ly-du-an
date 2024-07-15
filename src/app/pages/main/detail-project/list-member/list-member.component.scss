@@ -1,0 +1,61 @@
+.content{
+    background-color: aliceblue !important;
+    overflow-y: auto;
+    min-height: 350px;
+    max-height: 350px;
+}
+.user-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding-top: 20px;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+}
+  
+.card-avatar {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 20px;
+}
+.title{
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    
+}

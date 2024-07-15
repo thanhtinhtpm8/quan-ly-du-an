@@ -1,0 +1,32 @@
+
+ <div class="sidebar" style="width: 100%;">
+    <div style="margin-bottom: 50px;align-content: center;text-align: center;font-size: large;font-weight: 600; width: 100%;">
+        <div style="margin-left: 30%;">
+            <img src="./assets/images/logoevn.png" alt="" style="width: 40px;float: left;"> 
+            <span style="margin-bottom: 10px;float: left;margin-left: 5px; margin-top: 10px;">EVNCPC</span>
+        </div>
+        
+    </div>
+
+    <div style="width: 100%; height: 65vh;">
+        <mat-list role="list" style="width: 100%; background-color: unset;" >
+            <mat-list-item role="listitem" style="width: 100%;padding: 0px;" >
+                <a mat-button  [routerLink]="'home'" class="link-button" >Home</a>
+            </mat-list-item>
+            <mat-list-item role="listitem" style="width: 100%;padding: 0px;" >
+                <a mat-button  [routerLink]="'about'" class="link-button" >About</a>
+            </mat-list-item>
+            <mat-list-item role="listitem" style="width: 100%;padding: 0px;" >
+                <a mat-button  [routerLink]="'contact'" class="link-button" >Contact</a>
+            </mat-list-item>
+            <mat-list-item role="listitem" style="width: 100%;padding: 0px;" >
+                <a mat-button  [routerLink]="'home'" class="link-button" >Services</a>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div >
+        <button mat-fab extended (click)="logout()">
+            <mat-icon>logout</mat-icon>Logout
+        </button>
+    </div>
+</div> 

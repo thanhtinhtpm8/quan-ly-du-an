@@ -1,0 +1,20 @@
+<div class="grid-container">
+    @if(!list_project.length){
+    <div style="align-items: center; color: red; font-size: x-large;">
+        Chưa có dự án
+    </div>
+    }
+    @for (item of list_project; track $index) {
+    <app-project-item [color]="item.color" [title]="item.title" [id]="item.id" />
+    }
+    @if(is_add_new){
+    <div class="grid-item create" (click)="openDialog()">
+        <span>
+            <mat-icon style="font-size: xx-large; color: black;" fontIcon="add-new"></mat-icon>
+            <div style="color: green; margin-top: 7px;">
+                Tạo dự án
+            </div>
+        </span>
+    </div>
+    }
+</div>
