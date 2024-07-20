@@ -30,7 +30,7 @@ export class AddTaskComponent {
     if (this.title && this.description) {
       let data = { title: this.title, description: this.description }
       this.dialogRef.close({ result: data });
-
+      
     }
   }
 }

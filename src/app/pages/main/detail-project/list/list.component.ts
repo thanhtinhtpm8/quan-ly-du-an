@@ -20,6 +20,8 @@ export class ListComponent {
   @Input() list_task: any = [];
   @Input() type: number = 1;
   @Output() add_new = new EventEmitter<any>();
+  @Output() delete_prj = new EventEmitter<any>();
+  @Output() load_new = new EventEmitter<any>();
   readonly dialog = inject(MatDialog);
 
   add_task() {
@@ -32,9 +34,10 @@ export class ListComponent {
     });
   }
   edit_task(data:any) {
-    const dialogRef = this.dialog.open(EditTaskComponent,{data:{title:data.title,description:data.description}});
+    const dialogRef = this.dialog.open(EditTaskComponent,{data:data});
     dialogRef.afterClosed().subscribe((result: any) => {
-      
+      this.load_new.emit();
+      if(result) this.delete_prj.emit(); 
     });
   }
 }

@@ -7,7 +7,7 @@ import { CreateProjectComponent } from '../create-project/create-project.compone
 @Component({
   selector: 'app-list-project',
   standalone: true,
-  imports: [MatIconModule, ProjectItemComponent, MatDialogModule],
+  imports: [MatIconModule, ProjectItemComponent, MatDialogModule,CreateProjectComponent],
   templateUrl: './list-project.component.html',
   styleUrl: './list-project.component.scss'
 })
@@ -23,7 +23,7 @@ export class ListProjectComponent {
         this.list_project.push({
           id:this.list_project.length+1,
           color:result.data.color,
-          title:result.data.name,
+          title:result.data.title,
           date_created:''
         })
       }

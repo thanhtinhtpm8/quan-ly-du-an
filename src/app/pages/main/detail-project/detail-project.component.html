@@ -34,21 +34,21 @@
             <mat-grid-tile>
                 <div class="grid-item">
                     <div class="color">
-                        <app-list [title]="'Nhiệm vụ mới'" [list_task]="list_task_todo" [type]="1" (add_new)="add_new($event)"></app-list>
+                        <app-list [title]="'Nhiệm vụ mới'" (load_new)="load_data_detail()" [list_task]="list_task_todo" [type]="1" (add_new)="add_new($event)" (delete_prj)="delete($event)"></app-list>
                     </div>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="grid-item">
                     <div class="color">
-                        <app-list [title]="'Nhiệm vụ đang thực hiện'" [list_task]="list_task_doing" (add_new)="add_new($event)" [type]="2"></app-list>
+                        <app-list [title]="'Nhiệm vụ đang thực hiện'" (load_new)="load_data_detail()" [list_task]="list_task_doing" (add_new)="add_new($event)" [type]="2"></app-list>
                     </div>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="grid-item">
                     <div class="color">
-                        <app-list [title]="'Nhiệm vụ đang thực hiện'" [list_task]="list_task_done" (add_new)="add_new($event)" [type]="3"></app-list>
+                        <app-list [title]="'Nhiệm vụ đang thực hiện'" (load_new)="load_data_detail()" [list_task]="list_task_done" (add_new)="add_new($event)" [type]="3"></app-list>
                     </div>
                 </div>
             </mat-grid-tile>

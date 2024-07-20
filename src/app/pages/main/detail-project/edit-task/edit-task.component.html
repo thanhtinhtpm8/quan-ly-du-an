@@ -16,7 +16,7 @@
                 </button>
             </mat-menu>
         </div>
-        <select id="options" name="options" required>
+        <select id="options" name="options" required [(ngModel)]="status" (change)="change_status()">
             <option value="" disabled selected>Trạng thái</option>
             <option value="1">Nhiệm vụ mới</option>
             <option value="2">Đang thực hiện</option>
@@ -27,47 +27,103 @@
         <div style="width: 100%;">
             <div class="form-group">
                 <label for="description">Mô tả</label>
+                
                 <pre style="text-align: left;">
                     <div>{{description}}</div>
                 </pre>
             </div>
-            <div class="title">Nhập ghi chú:</div>
-            <div class="comment">
-                <div>
-                    <textarea id="description" name="description" rows="2" required [(ngModel)]="note"></textarea>
-                    <button mat-fab extended style="background-color: rgb(45, 117, 150);" (click)="send()">
-                        <mat-icon>send</mat-icon>Gửi
-                    </button>
-                </div>
-            </div>
-            @if (list_note.length) {
-            <div class="title">Danh sách ghi chú</div>
-            <div class="list-comment">
-                <div class="comment-section">
-                    <div class="comment-list">
-                        @for (item of list_note; track $index) {
-                        <div class="comment-item">
-                            <div class="comment-avatar">
-                                <span class="avatar">{{item.user.charAt(0)}}</span>
+            <!-- New comment form -->
+            <div class="mb-6 flex gap-x-3">
+                <span class="avatar h-6 w-6 flex-none rounded-full bg-gray-50">T</span>
+                <form action="#" class="relative flex-auto">
+                    <div
+                        class="overflow-hidden rounded-lg pb-12 shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-indigo-600">
+                        <label for="comment" class="sr-only">Add your comment</label>
+                        <textarea rows="2" name="comment" id="comment" [(ngModel)]="note"
+                            class="block w-full resize-none border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                            placeholder="Add your comment..."></textarea>
+                    </div>
+
+                    <div class="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">
+                        <div class="flex items-center space-x-5">
+                            <div class="flex items-center">
+                                <button type="button"
+                                    class="-m-2.5 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500">
+                                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="sr-only">Attach a file</span>
+                                </button>
                             </div>
-                            <div class="comment-content">
-                                <div class="comment-header">
-                                    <span class="comment-author">{{item.user}}</span>
-                                    <span class="comment-time">{{convertDate(item.time_create)}}</span>
-                                </div>
-                                <div class="comment-text" [innerHTML]="item.content"></div>
-                                <div class="comment-actions">
-                                    <a (click)="edit_note(item.id)">Edit</a> ·
-                                    <a (click)="delete_note(item.id)">Delete</a> ·
-                                    <span class="comment-options">•••</span>
+                            <div class="flex items-center">
+                                <div>
+                                    <label id="listbox-label" class="sr-only">Your mood</label>
+                                    <div class="relative">
+                                        <button type="button"
+                                            class="relative -m-2.5 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
+                                            aria-haspopup="listbox" aria-expanded="true"
+                                            aria-labelledby="listbox-label">
+                                            <span class="flex items-center justify-center">
+                                                <!-- Placeholder label, show/hide based on listbox state. -->
+                                                <span>
+                                                    <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20"
+                                                        fill="currentColor" aria-hidden="true">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.536-4.464a.75.75 0 10-1.061-1.061 3.5 3.5 0 01-4.95 0 .75.75 0 00-1.06 1.06 5 5 0 007.07 0zM9 8.5c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S7.448 7 8 7s1 .672 1 1.5zm3 1.5c.552 0 1-.672 1-1.5S12.552 7 12 7s-1 .672-1 1.5.448 1.5 1 1.5z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                    <span class="sr-only">Add your mood</span>
+                                                </span>
+                                                <!-- Selected item label, show/hide based on listbox state. -->
+                                                <span>
+                                                    <span
+                                                        class="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
+                                                        <svg class="h-5 w-5 flex-shrink-0 text-white"
+                                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M13.5 4.938a7 7 0 11-9.006 1.737c.202-.257.59-.218.793.039.278.352.594.672.943.954.332.269.786-.049.773-.476a5.977 5.977 0 01.572-2.759 6.026 6.026 0 012.486-2.665c.247-.14.55-.016.677.238A6.967 6.967 0 0013.5 4.938zM14 12a4 4 0 01-4 4c-1.913 0-3.52-1.398-3.91-3.182-.093-.429.44-.643.814-.413a4.043 4.043 0 001.601.564c.303.038.531-.24.51-.544a5.975 5.975 0 011.315-4.192.447.447 0 01.431-.16A4.001 4.001 0 0114 12z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                    </span>
+                                                    <span class="sr-only">Excited</span>
+                                                </span>
+                                            </span>
+                                        </button>
+
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        }
+                        <button type="button" (click)="send()"
+                            class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Comment</button>
                     </div>
-                </div>
+                </form>
             </div>
-            }
+            <ul role="list" class="space-y-6">
+                @for (item of list_note; track $index) {
+                <li class="relative flex gap-x-4">
+                    <div class="absolute -bottom-6 left-0 top-0 flex w-6 justify-center">
+                        <div class="w-px bg-gray-200"></div>
+                    </div>
+                    <span
+                        class="avatar relative mt-3 h-6 w-6 flex-none rounded-full bg-gray-50">{{item.username.charAt(0)}}</span>
+                    <div class="flex-auto rounded-md p-3 ring-1 ring-inset ring-gray-200">
+                        <div class="flex justify-between gap-x-4">
+                            <div class="py-0.5 text-xs leading-5 text-gray-500"><span
+                                    class="font-medium text-gray-900">{{item.fullName}}</span> commented</div>
+                            <time datetime="2023-01-23T15:56"
+                                class="flex-none py-0.5 text-xs leading-5 text-gray-500">{{(item.createdAt)}}</time>
+                        </div>
+                        <div class="text-sm leading-6 text-gray-500"  [innerHTML]="item.content"></div>
+                    </div>
+                </li>
+                }
+
+            </ul>
 
 
         </div>
