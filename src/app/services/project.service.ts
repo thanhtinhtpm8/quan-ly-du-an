@@ -19,4 +19,7 @@ export class ProjectService {
   updateProject(id:string,data:any){
     return this.httpService.put(this.url + "/" + id ,data);
   }
+  search(key:string){
+    return this.httpService.get(this.url + "?title="+key);
+  }
 }

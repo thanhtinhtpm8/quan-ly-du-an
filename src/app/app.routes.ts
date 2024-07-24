@@ -7,6 +7,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DetailProjectComponent } from './pages/main/detail-project/detail-project.component';
 import { ContactComponent } from './pages/main/contact/contact.component';
 import { inject } from '@angular/core';
+import { UserManagerComponent } from './pages/main/user-manager/user-manager.component';
+import { ThongKeComponent } from './pages/main/thong-ke/thong-ke.component';
 const canActiveHome: CanActivateFn = (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -41,6 +43,16 @@ export const routes: Routes = [
                 path: 'contact',
                 title: 'Contact',
                 component: ContactComponent
+            },
+            {
+                path: 'user-manager',
+                title: 'Quản trị user',
+                component: UserManagerComponent
+            },
+            {
+                path: 'thong-ke',
+                title: 'Thống kê',
+                component: ThongKeComponent
             },
         ]
     },
